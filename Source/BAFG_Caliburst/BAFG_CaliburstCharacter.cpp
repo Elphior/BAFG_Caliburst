@@ -57,6 +57,32 @@ void ABAFG_CaliburstCharacter::SetupPlayerInputComponent(class UInputComponent* 
 
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ABAFG_CaliburstCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ABAFG_CaliburstCharacter::TouchStopped);
+	
+	
+	PlayerInputComponent->BindAction("Attack1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack1);
+	PlayerInputComponent->BindAction("Attack2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack2);
+	PlayerInputComponent->BindAction("Attack3", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack3);
+	PlayerInputComponent->BindAction("Attack4", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack4);
+}
+
+void ABAFG_CaliburstCharacter::StartAttack1()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Attack1"));
+}
+
+void ABAFG_CaliburstCharacter::StartAttack2()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Attack2"));
+}
+
+void ABAFG_CaliburstCharacter::StartAttack3()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Attack3"));
+}
+
+void ABAFG_CaliburstCharacter::StartAttack4()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Attack4"));
 }
 
 void ABAFG_CaliburstCharacter::MoveRight(float Value)
