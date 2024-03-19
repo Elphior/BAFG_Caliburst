@@ -39,6 +39,9 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
 
+	void TakeDamage(float damageAmount);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
+	float playerHealth;
 
 public:
 	ABAFG_CaliburstCharacter();

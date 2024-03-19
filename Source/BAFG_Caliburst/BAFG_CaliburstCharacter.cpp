@@ -43,6 +43,8 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+	playerHealth = 1.f;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -65,6 +67,14 @@ void ABAFG_CaliburstCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindAction("Attack4", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack4);
 }
 
+void ABAFG_CaliburstCharacter::TakeDamage(float damageAmount)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Took %f damage"), damageAmount);
+	playerHealth -= damageAmount;
+	if (playerHealth <= 0.f)
+		playerHealth = 0.f;
+}
+
 void ABAFG_CaliburstCharacter::StartAttack1()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack1"));
@@ -83,6 +93,7 @@ void ABAFG_CaliburstCharacter::StartAttack3()
 void ABAFG_CaliburstCharacter::StartAttack4()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack4"));
+	TakeDamage(0.05f);
 }
 
 void ABAFG_CaliburstCharacter::MoveRight(float Value)
