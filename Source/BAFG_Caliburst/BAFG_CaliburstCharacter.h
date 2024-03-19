@@ -40,6 +40,12 @@ protected:
 	// End of APawn interface
 
 	void TakeDamage(float damageAmount);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	bool attack1Used;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	bool attack2Used;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damages")
+	bool wasAttacked;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 	float playerHealth;
 

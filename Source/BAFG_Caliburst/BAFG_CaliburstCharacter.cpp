@@ -45,6 +45,9 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	playerHealth = 1.f;
+	attack1Used = false;
+	attack2Used = false;
+	wasAttacked = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -78,11 +81,13 @@ void ABAFG_CaliburstCharacter::TakeDamage(float damageAmount)
 void ABAFG_CaliburstCharacter::StartAttack1()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack1"));
+	attack1Used = true;
 }
 
 void ABAFG_CaliburstCharacter::StartAttack2()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack2"));
+	attack2Used = true;
 }
 
 void ABAFG_CaliburstCharacter::StartAttack3()
@@ -94,6 +99,7 @@ void ABAFG_CaliburstCharacter::StartAttack4()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack4"));
 	TakeDamage(0.05f);
+	wasAttacked = true;
 }
 
 void ABAFG_CaliburstCharacter::MoveRight(float Value)
