@@ -39,6 +39,7 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
 
+	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float damageAmount);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	bool attack1Used;

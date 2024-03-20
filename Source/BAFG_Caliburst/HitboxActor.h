@@ -37,6 +37,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Hitbox")
 	FVector hitboxLocation;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Hitbox")
+	float hitboxDamage;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
