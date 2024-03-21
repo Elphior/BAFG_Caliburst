@@ -4,7 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "BAFG_CaliburstCharacter.h"
 #include "BAFG_CaliburstGameMode.generated.h"
+
+//UENUM(BlueprintType)
+//enum class ECharacterClass : uint8
+//{
+//	VE_Default	UMETA(DisplayName = "Mannequin"),
+//	VE_Char		UMETA(DisplayName = "Char")
+//};
 
 UCLASS(minimalapi)
 class ABAFG_CaliburstGameMode : public AGameModeBase
@@ -13,6 +21,12 @@ class ABAFG_CaliburstGameMode : public AGameModeBase
 
 public:
 	ABAFG_CaliburstGameMode();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
+	ABAFG_CaliburstCharacter* player1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
+	ABAFG_CaliburstCharacter* player2;
 };
 
 
