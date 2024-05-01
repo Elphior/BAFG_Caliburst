@@ -7,12 +7,12 @@
 #include "BAFG_CaliburstCharacter.h"
 #include "BAFG_CaliburstGameMode.generated.h"
 
-//UENUM(BlueprintType)
-//enum class ECharacterClass : uint8
-//{
-//	VE_Default	UMETA(DisplayName = "Mannequin"),
-//	VE_Char		UMETA(DisplayName = "Char")
-//};
+UENUM(BlueprintType)
+enum class ECharacterClass : uint8
+{
+	VE_Default	UMETA(DisplayName = "Mannequin"),
+	VE_Char		UMETA(DisplayName = "Char")
+};
 
 UCLASS(minimalapi)
 class ABAFG_CaliburstGameMode : public AGameModeBase
