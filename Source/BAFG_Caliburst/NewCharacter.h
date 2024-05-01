@@ -13,5 +13,4 @@ UCLASS()
 class BAFG_CALIBURST_API ANewCharacter : public ABAFG_CaliburstCharacter
 {
 	GENERATED_BODY()
-	
 };

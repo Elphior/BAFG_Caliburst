@@ -23,7 +23,8 @@ class ABAFG_CaliburstCharacter : public ACharacter
 	void StartAttack2();
 	void StartAttack3();
 	void StartAttack4();
-
+	UFUNCTION(BlueprintCallable)
+	void TakeDamage(float damageAmount);
 protected:
 
 	/** Called for side to side input */
@@ -42,8 +43,8 @@ protected:
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	//ECharacterClass characterClass;
 
-	//UFUNCTION(BlueprintCallable)
-	void TakeDamage(float damageAmount);
+	
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	bool attack1Used;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
