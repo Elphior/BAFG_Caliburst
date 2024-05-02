@@ -48,6 +48,8 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 	attack1Used = false;
 	attack2Used = false;
 	wasAttacked = false;
+
+	hurtbox = nullptr;
 }
 
 //////////////////////////////////////////////////////////////////////////

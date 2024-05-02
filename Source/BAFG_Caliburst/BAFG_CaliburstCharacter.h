@@ -43,7 +43,8 @@ protected:
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character")
 	//ECharacterClass characterClass;
 
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Hitbox")
+	AActor* hurtbox;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	bool attack1Used;
