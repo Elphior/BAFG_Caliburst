@@ -9,9 +9,9 @@ ABAFG_CaliburstGameMode::ABAFG_CaliburstGameMode()
 	player1 = nullptr;
 	player2 = nullptr;
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/SideScrollerCPP/Blueprints/SideScrollerCharacter"));
+	/*static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/SideScrollerCPP/Blueprints/SideScrollerCharacter"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
-	}
+	}*/
 }
