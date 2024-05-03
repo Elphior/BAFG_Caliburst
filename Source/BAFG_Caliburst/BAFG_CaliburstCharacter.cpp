@@ -50,6 +50,7 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 	wasAttacked = false;
 
 	hurtbox = nullptr;
+	
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -23,8 +23,11 @@ class ABAFG_CaliburstCharacter : public ACharacter
 	void StartAttack2();
 	void StartAttack3();
 	void StartAttack4();
+	
 	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float damageAmount);
+
+
 protected:
 
 	/** Called for side to side input */
@@ -54,6 +57,16 @@ protected:
 	bool wasAttacked;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 	float playerHealth;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player References")
+	ABAFG_CaliburstCharacter* otherPlayer;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Model")
+	FTransform transform;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Model")
+	FVector scale;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Model")
+	bool isFlipped;
+
 
 public:
 	ABAFG_CaliburstCharacter();
