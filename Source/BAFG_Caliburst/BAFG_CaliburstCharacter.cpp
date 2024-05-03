@@ -111,9 +111,21 @@ void ABAFG_CaliburstCharacter::StartAttack4()
 void ABAFG_CaliburstCharacter::MoveRight(float Value)
 {
 	if (Value > 0.20f)
-		directionalInput = EDirectionalInput::VE_MovingRight;
+	{
+		if (!isFlipped)
+			directionalInput = EDirectionalInput::VE_MovingForward;
+		else
+			directionalInput = EDirectionalInput::VE_MovingBack;
+
+	}
 	else if (Value < -0.20f)
-		directionalInput = EDirectionalInput::VE_MovingLeft;
+	{
+		if (isFlipped)
+			directionalInput = EDirectionalInput::VE_MovingForward;
+		else
+			directionalInput = EDirectionalInput::VE_MovingBack;
+		
+	}
 	else
 		directionalInput = EDirectionalInput::VE_Default;
 	

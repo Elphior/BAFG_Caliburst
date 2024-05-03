@@ -9,9 +9,9 @@
 UENUM(BlueprintType)
 enum class EDirectionalInput : uint8
 {
-	VE_Default		UMETA(DisplayName = "NOT_MOVING"),
-	VE_MovingRight	UMETA(DisplayName = "MOVING_RIGHT"),
-	VE_MovingLeft	UMETA(DisplayName = "MOVING_LEFT")
+	VE_Default			UMETA(DisplayName = "NOT_MOVING"),
+	VE_MovingForward	UMETA(DisplayName = "MOVING_FORWARD"),
+	VE_MovingBack		UMETA(DisplayName = "MOVING_BACK")
 };
 
 UCLASS(config=Game)
