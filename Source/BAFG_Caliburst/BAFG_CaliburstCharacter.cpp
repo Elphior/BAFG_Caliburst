@@ -50,7 +50,9 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 	wasAttacked = false;
 
 	hurtbox = nullptr;
-	
+	directionalInput = EDirectionalInput::VE_Default;
+	wasMediumAttackUsed = false;
+	wasHeavyAttackUsed = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -91,6 +93,7 @@ void ABAFG_CaliburstCharacter::StartAttack2()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack2"));
 	attack2Used = true;
+	wasMediumAttackUsed = true;
 }
 
 void ABAFG_CaliburstCharacter::StartAttack3()
@@ -107,6 +110,13 @@ void ABAFG_CaliburstCharacter::StartAttack4()
 
 void ABAFG_CaliburstCharacter::MoveRight(float Value)
 {
+	if (Value > 0.20f)
+		directionalInput = EDirectionalInput::VE_MovingRight;
+	else if (Value < -0.20f)
+		directionalInput = EDirectionalInput::VE_MovingLeft;
+	else
+		directionalInput = EDirectionalInput::VE_Default;
+	
 	// add movement in that direction
 	AddMovementInput(FVector(0.f,-1.f,0.f), Value);
 }

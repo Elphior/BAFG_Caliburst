@@ -6,6 +6,14 @@
 #include "GameFramework/Character.h"
 #include "BAFG_CaliburstCharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class EDirectionalInput : uint8
+{
+	VE_Default		UMETA(DisplayName = "NOT_MOVING"),
+	VE_MovingRight	UMETA(DisplayName = "MOVING_RIGHT"),
+	VE_MovingLeft	UMETA(DisplayName = "MOVING_LEFT")
+};
+
 UCLASS(config=Game)
 class ABAFG_CaliburstCharacter : public ACharacter
 {
@@ -53,6 +61,10 @@ protected:
 	bool attack1Used;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	bool attack2Used;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	bool wasMediumAttackUsed;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	bool wasHeavyAttackUsed;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damages")
 	bool wasAttacked;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
@@ -66,6 +78,9 @@ protected:
 	FVector scale;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Model")
 	bool isFlipped;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	EDirectionalInput directionalInput;
 
 
 public:
