@@ -65,6 +65,9 @@ protected:
 	bool wasMediumAttackUsed;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	bool wasHeavyAttackUsed;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	bool hasAttackConnected;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damages")
 	bool wasAttacked;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")

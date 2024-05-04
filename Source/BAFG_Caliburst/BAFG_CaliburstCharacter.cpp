@@ -53,6 +53,7 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 	directionalInput = EDirectionalInput::VE_Default;
 	wasMediumAttackUsed = false;
 	wasHeavyAttackUsed = false;
+	hasAttackConnected = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -81,6 +82,8 @@ void ABAFG_CaliburstCharacter::TakeDamage(float damageAmount)
 	playerHealth -= damageAmount;
 	if (playerHealth <= 0.f)
 		playerHealth = 0.f;
+	if (otherPlayer)
+		otherPlayer->hasAttackConnected = true;
 }
 
 void ABAFG_CaliburstCharacter::StartAttack1()
