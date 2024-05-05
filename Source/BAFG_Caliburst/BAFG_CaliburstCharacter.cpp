@@ -83,7 +83,7 @@ void ABAFG_CaliburstCharacter::SetupPlayerInputComponent(class UInputComponent* 
 		{
 			PlayerInputComponent->BindAction("JumpP2", IE_Pressed, this, &ABAFG_CaliburstCharacter::P2Jump);
 			PlayerInputComponent->BindAction("JumpP2", IE_Released, this, &ABAFG_CaliburstCharacter::P2StopJump);
-			PlayerInputComponent->BindAxis("MoveRightP2", this, &ABAFG_CaliburstCharacter::P2MoveRight);
+			PlayerInputComponent->BindAxis("MoveRightP2", this, &ABAFG_CaliburstCharacter::MoveRight);
 
 			PlayerInputComponent->BindTouch(IE_Pressed, this, &ABAFG_CaliburstCharacter::TouchStarted);
 			PlayerInputComponent->BindTouch(IE_Released, this, &ABAFG_CaliburstCharacter::TouchStopped);

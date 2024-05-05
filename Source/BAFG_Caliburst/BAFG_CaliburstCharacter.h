@@ -99,6 +99,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	EDirectionalInput directionalInput;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controllers")
+	bool isDeviceForMultiplePlayers;
 
 public:
 	ABAFG_CaliburstCharacter();
