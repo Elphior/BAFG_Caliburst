@@ -35,6 +35,20 @@ class ABAFG_CaliburstCharacter : public ACharacter
 	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float damageAmount);
 
+	UFUNCTION(BlueprintCallable)
+	void P2Attack1();
+	UFUNCTION(BlueprintCallable)
+	void P2Attack2();
+	UFUNCTION(BlueprintCallable)
+	void P2Attack3();
+	UFUNCTION(BlueprintCallable)
+	void P2Attack4();
+	UFUNCTION(BlueprintCallable)
+	void P2Jump();
+	UFUNCTION(BlueprintCallable)
+	void P2StopJump();
+	UFUNCTION(BlueprintCallable)
+	void P2MoveRight(float val);
 
 protected:
 

@@ -6,6 +6,7 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "BAFG_CaliburstGameMode.h"
 
 ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 {
@@ -62,18 +63,37 @@ ABAFG_CaliburstCharacter::ABAFG_CaliburstCharacter()
 void ABAFG_CaliburstCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// set up gameplay key bindings
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-	PlayerInputComponent->BindAxis("MoveRight", this, &ABAFG_CaliburstCharacter::MoveRight);
+	if (auto gameMode = Cast<ABAFG_CaliburstGameMode>(GetWorld()->GetAuthGameMode()))
+	{
+		if (gameMode->player1 == this)
+		{
+			PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+			PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+			PlayerInputComponent->BindAxis("MoveRight", this, &ABAFG_CaliburstCharacter::MoveRight);
 
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ABAFG_CaliburstCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ABAFG_CaliburstCharacter::TouchStopped);
+			PlayerInputComponent->BindTouch(IE_Pressed, this, &ABAFG_CaliburstCharacter::TouchStarted);
+			PlayerInputComponent->BindTouch(IE_Released, this, &ABAFG_CaliburstCharacter::TouchStopped);
 	
-	
-	PlayerInputComponent->BindAction("Attack1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack1);
-	PlayerInputComponent->BindAction("Attack2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack2);
-	PlayerInputComponent->BindAction("Attack3", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack3);
-	PlayerInputComponent->BindAction("Attack4", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack4);
+			PlayerInputComponent->BindAction("Attack1P1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack1);
+			PlayerInputComponent->BindAction("Attack2P1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack2);
+			PlayerInputComponent->BindAction("Attack3P1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack3);
+			PlayerInputComponent->BindAction("Attack4P1", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack4);
+		}
+		else
+		{
+			PlayerInputComponent->BindAction("JumpP2", IE_Pressed, this, &ABAFG_CaliburstCharacter::P2Jump);
+			PlayerInputComponent->BindAction("JumpP2", IE_Released, this, &ABAFG_CaliburstCharacter::P2StopJump);
+			PlayerInputComponent->BindAxis("MoveRightP2", this, &ABAFG_CaliburstCharacter::P2MoveRight);
+
+			PlayerInputComponent->BindTouch(IE_Pressed, this, &ABAFG_CaliburstCharacter::TouchStarted);
+			PlayerInputComponent->BindTouch(IE_Released, this, &ABAFG_CaliburstCharacter::TouchStopped);
+
+			PlayerInputComponent->BindAction("Attack1P2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack1);
+			PlayerInputComponent->BindAction("Attack2P2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack2);
+			PlayerInputComponent->BindAction("Attack3P2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack3);
+			PlayerInputComponent->BindAction("Attack4P2", IE_Pressed, this, &ABAFG_CaliburstCharacter::StartAttack4);
+		}
+	}
 }
 
 void ABAFG_CaliburstCharacter::TakeDamage(float damageAmount)
@@ -84,6 +104,41 @@ void ABAFG_CaliburstCharacter::TakeDamage(float damageAmount)
 		playerHealth = 0.f;
 	if (otherPlayer)
 		otherPlayer->hasAttackConnected = true;
+}
+
+void ABAFG_CaliburstCharacter::P2Attack1()
+{
+	StartAttack1();
+}
+
+void ABAFG_CaliburstCharacter::P2Attack2()
+{
+	StartAttack2();
+}
+
+void ABAFG_CaliburstCharacter::P2Attack3()
+{
+	StartAttack3();
+}
+
+void ABAFG_CaliburstCharacter::P2Attack4()
+{
+	StartAttack4();
+}
+
+void ABAFG_CaliburstCharacter::P2Jump()
+{
+	Jump();
+}
+
+void ABAFG_CaliburstCharacter::P2StopJump()
+{
+	StopJumping();
+}
+
+void ABAFG_CaliburstCharacter::P2MoveRight(float val)
+{
+	MoveRight(val);
 }
 
 void ABAFG_CaliburstCharacter::StartAttack1()
