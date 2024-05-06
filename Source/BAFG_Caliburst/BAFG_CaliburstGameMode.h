@@ -11,7 +11,8 @@ UENUM(BlueprintType)
 enum class ECharacterClass : uint8
 {
 	VE_Default	UMETA(DisplayName = "Mannequin"),
-	VE_Char		UMETA(DisplayName = "Char")
+	VE_Char		UMETA(DisplayName = "Char"),
+	VE_Ako		UMETA(DisplayName = "Ako")
 };
 
 UCLASS(minimalapi)
