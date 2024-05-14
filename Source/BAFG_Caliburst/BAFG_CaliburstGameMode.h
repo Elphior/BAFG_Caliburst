@@ -12,7 +12,8 @@ enum class ECharacterClass : uint8
 {
 	VE_Default	UMETA(DisplayName = "Mannequin"),
 	VE_Char		UMETA(DisplayName = "Char"),
-	VE_Ako		UMETA(DisplayName = "Ako")
+	VE_Ako		UMETA(DisplayName = "Ako"),
+	VE_Saori	UMETA(DisplayName = "Saori")
 };
 
 UCLASS(minimalapi)
